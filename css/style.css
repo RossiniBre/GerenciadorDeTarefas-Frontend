@@ -1,0 +1,93 @@
+body {
+    background-color: #160C17;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 6rem;
+}
+
+.title {
+    font-family: "Josefin Sans", sans-serif;
+    color: white;
+    font-size: 12rem;
+    text-shadow: 
+        0 0 10px #45164A,
+        0 0 20px #45164A,
+        0 0 30px #45164A;
+    margin: 0;
+}
+
+.login-fields {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    border: 1px solid white;
+    border-radius: 20px;
+    gap: 1.5rem;
+}
+
+.user-field,
+.password-field {
+    padding: 16px 20px;
+    border: 1px solid white;
+    border-radius: 8px;
+    width: 1000px;
+    font-size: 1.1rem;
+    background-color: transparent;
+    color: white;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.register-recuperation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.links-account {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.register-recuperation a {
+    color: white;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+}
+
+.register-recuperation a:first-child {
+    margin-right: 1rem;
+}
+
+.login-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #cccccc;
+    color: #333333;
+    cursor: not-allowed;
+}
+
+.login-button:hover {
+    background-color: #45164A;
+    color: white;
+    cursor: pointer;
+}
+
+.login-button.ativo {
+    background-color: #45164A;
+    color: white;
+    cursor: pointer;
+}
