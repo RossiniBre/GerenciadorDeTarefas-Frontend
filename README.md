@@ -19,7 +19,8 @@ https://github.com/RossiniBre/GerenciadorDeTarefas-Backend
 ---
 
 What's Implemented
-Phase 1 — Foundation and Prototyping
+
+# Phase 1 — Foundation and Prototyping
 
 The initial phase focuses on establishing the frontend structure and defining the application's visual identity and user experience.
 
