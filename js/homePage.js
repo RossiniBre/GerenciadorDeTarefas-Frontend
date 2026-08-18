@@ -82,3 +82,13 @@ themeToggle.addEventListener("click", () => {
         themeToggle.setAttribute("aria-label", "Ativar tema escuro");
     }
 });
+
+//clear search button
+const searchInput = document.getElementById('task-search');
+const clearButton = document.querySelector('.clear-search');
+
+clearButton.addEventListener('click', () => {
+    searchInput.value = '';
+    searchInput.focus();
+    searchInput.dispatchEvent(new Event('input'));
+});

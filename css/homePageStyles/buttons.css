@@ -1,6 +1,6 @@
 #create-task {
     padding: 0.6rem 1.2rem;
-    border: 2px solid var(--border);
+    border: solid 0.2px white;
     border-radius: 8px;
     background-color: var(--accent);
     color: white;
@@ -19,7 +19,7 @@
     height: 40px;
     display: grid;
     place-items: center;
-    border: 2px solid var(--border);
+    border: solid 0.2px white;
     border-radius: 8px;
     background-color: var(--accent);
     color: var(--text-primary);

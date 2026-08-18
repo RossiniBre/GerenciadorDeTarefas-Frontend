@@ -14,7 +14,8 @@
 [data-theme="light"] aside nav li:hover,
 [data-theme="light"] .close-sidebar:hover,
 [data-theme="light"] #create-task:hover,
-[data-theme="light"] #theme-toggle:hover {
+[data-theme="light"] #theme-toggle:hover,
+[data-theme="light"] #task-button-filter:hover {
     background-color: var(--accent);
     color: white;
 }
@@ -24,7 +25,8 @@
 }
 
 [data-theme="light"] #create-task,
-[data-theme="light"] #theme-toggle {
+[data-theme="light"] #theme-toggle, 
+[data-theme="light"] #task-button-filter {
     background-color: white;
     color: var(--text-primary);
     border: 2px solid var(--border);
