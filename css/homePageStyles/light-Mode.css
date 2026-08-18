@@ -1,0 +1,39 @@
+[data-theme="light"] {
+    --background: #ffffff;
+    --surface: #f7f1f8;
+    --text-primary: #201022;
+    --text-secondary: #5d4a60;
+    --border: #cdbdce;
+}
+
+[data-theme="light"] aside nav li,
+[data-theme="light"] .close-sidebar {
+    background-color: white;
+}
+
+[data-theme="light"] aside nav li:hover,
+[data-theme="light"] .close-sidebar:hover,
+[data-theme="light"] #create-task:hover,
+[data-theme="light"] #theme-toggle:hover {
+    background-color: var(--accent);
+    color: white;
+}
+
+[data-theme="light"] aside nav li:hover a {
+    color: white;
+}
+
+[data-theme="light"] #create-task,
+[data-theme="light"] #theme-toggle {
+    background-color: white;
+    color: var(--text-primary);
+    border: 2px solid var(--border);
+}
+
+[data-theme="light"] .logo {
+    text-shadow: none;
+}
+
+[data-theme="light"] aside {
+    background-color: white;
+}

@@ -1,0 +1,16 @@
+body {
+    height: 100vh;
+    display: flex;
+    gap: 2rem;
+    overflow: hidden;
+    background-color: var(--background);
+    color: var(--text-primary);
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+}
+
+main {
+    flex: 1;
+    padding: 34px;
+    overflow-y: auto;
+}
