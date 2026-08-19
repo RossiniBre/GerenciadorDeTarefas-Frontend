@@ -65,9 +65,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" id="logout-button">
                         <span class="label">Sair</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m16 17 5-5-5-5"/>
+                            <path d="M21 12H9"/>
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                        </svg>
                     </a>
                 </li>
             </ul>
@@ -130,7 +136,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Criar tarefa</h3>
-                <button type="button" class="modal-close" aria-label="Fechar">&times;</button>
+                <button type="button" id="task-modal-close" class="modal-close" aria-label="Fechar">&times;</button>
             </div>
 
             <form id="task-form">
@@ -180,8 +186,79 @@
                 </label>
 
                 <div class="modal-actions">
-                    <button type="button" class="btn-cancel">Cancelar</button>
+                    <button type="button" id="task-btn-cancel" class="btn-cancel">Cancelar</button>
                     <button type="submit" class="btn-submit">Criar</button>
+                </div>
+
+                <div id="task-form-error" class="task-form-error hidden">
+                    Preencha todos os campos obrigatórios.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="filter-modal" class="modal hidden">
+        <div class="filter-modal-content">
+
+            <div class="filter-modal-header">
+                <h3>Filtrar tarefa</h3>
+                <button type="button" id="task-modal-close" class="filter-modal-close" aria-label="Fechar">&times;</button>
+            </div>
+
+            <form id="filter-task-form">
+
+                    <fieldset>
+                        <legend>Prioridade</legend>
+
+                        <label>
+                            <input type="checkbox" name="priority" value="HIGH"> Alta
+                        </label>
+                        <label>
+                            <input type="checkbox" name="priority" value="MEDIUM"> Média
+                        </label>
+                        <label>
+                            <input type="checkbox" name="priority" value="LOW"> Baixa
+                        </label>
+                    </fieldset>
+                    
+                     <fieldset>
+
+                        <legend>Categoria</legend>
+
+                            <label>
+                                <input type="checkbox" name="category" value="STUDY">Estudo
+                            </label>
+                            <label>
+                                <input type="checkbox" name="category" value="WORK">Trabalho
+                            </label>
+                            <label>
+                                <input type="checkbox" name="category" value="PERSONAL">Pessoal
+                            </label>
+                            <label>
+                                <input type="checkbox" name="category" value="UNCATEGORIZED">Sem categoria
+                            </label>
+
+                    </fieldset>
+
+                    <fieldset>
+
+                        <legend>Status</legend>
+
+                            <label>
+                                <input type="checkbox" name="status" value="PENDING">Pendente
+                            </label>
+                            <label>
+                                <input type="checkbox" name="status" value="IN_PROGRESS">Em andamento
+                            </label>
+                            <label>
+                                <input type="checkbox" name="status" value="COMPLETED">Completa
+                            </label>
+
+                    </fieldset>
+
+                 <div class="filter-modal-actions">
+                    <button type="button" id="filter-btn-cancel" class="btn-cancel">Cancelar</button>
+                    <button type="submit" class="btn-submit">Aplicar</button>
                 </div>
             </form>
         </div>

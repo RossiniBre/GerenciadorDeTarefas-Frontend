@@ -29,7 +29,7 @@
 [data-theme="light"] #task-button-filter {
     background-color: white;
     color: var(--text-primary);
-    border: 2px solid var(--border);
+    border: 0.2px solid black;
 }
 
 [data-theme="light"] .logo {
@@ -38,4 +38,12 @@
 
 [data-theme="light"] aside {
     background-color: white;
+}
+
+[data-theme="light"] input[type="checkbox"] {
+    accent-color: var(--accent);
+}
+
+[data-theme="light"] #task-toolbar {
+    border: 0.2px solid black;
 }

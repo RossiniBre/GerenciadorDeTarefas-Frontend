@@ -1,79 +1,76 @@
 // api base url
 const API_BASE_URL = "http://localhost:8080";
 
-// blocked/unlocked button
-
+// elements
 const button = document.querySelector(".login-button");
 const userField = document.querySelector(".user-field");
 const userPassword = document.querySelector(".password-field");
+const loginError = document.querySelector(".login-error");
+const form = document.querySelector(".form-login");
 
+// blocked/unlocked button
 userField.addEventListener("input", verifyFields);
 userPassword.addEventListener("input", verifyFields);
 
-function verifyFields(){
-    if (userField.value && userPassword.value){
-        button.classList.add("active");
-    } else {
-        button.classList.remove("active");
-    }
+function verifyFields() {
+    const fieldsFilled =
+        userField.value.trim() !== "" &&
+        userPassword.value.trim() !== "";
+
+    button.disabled = !fieldsFilled;
+    button.classList.toggle("active", fieldsFilled);
 
     loginError.classList.add("hidden");
 }
 
-// login error messages
-const loginError = document.querySelector(".login-error");
-
-loginError.textContent = "Usuário ou senha inválidos";
-loginError.classList.remove("hidden");
-loginError.classList.add("hidden");
-
-// receive forms submit
-const form = document.querySelector(".form-login");
-
+// receive form submit
 form.addEventListener("submit", verifyLogin);
-
-function verifyLogin(event) {
-    event.preventDefault();
-
-    const validUser = "admin";
-    const validPassword = "1234";
-
-    if (userField.value === validUser && userPassword.value === validPassword) {
-        console.log("Login válido!");
-        loginError.classList.add("hidden");
-    } else {
-        loginError.textContent = "Usuário ou senha inválidos";
-        loginError.classList.remove("hidden");
-    }
-}
-
-// login response messages
-const loginSuccess = document.querySelector(".login-success");
 
 async function verifyLogin(event) {
     event.preventDefault();
 
-    const response = await fetch(`${API_BASE_URL}/users/login`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            identifier: userField.value,
-            password: userPassword.value
-        })
-    });
+    if (button.disabled) {
+        return;
+    }
 
-    const data = await response.json();
-    console.log("Status:", response.status);
-    console.log("Resposta:", data);
+    try {
+        const response = await fetch(`${API_BASE_URL}/users/login`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                identifier: userField.value.trim(),
+                password: userPassword.value
+            })
+        });
 
-    if (response.status === 200) {
-        loginError.classList.add("hidden");
-        console.log("Login bem-sucedido!", data);
-        // aqui, futuramente: salvar o token e redirecionar
-    } else {
-        loginError.textContent = "Usuário ou senha inválidos";
+        const data = await response.json();
+
+        console.log("Status:", response.status);
+        console.log("Resposta:", data);
+
+        if (response.ok) {
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("username", data.username);
+
+            console.log("Login bem-sucedido!");
+
+            document.body.classList.add("page-transition");
+
+            setTimeout(() => {
+                window.location.href = "/pages/HomePage.html";
+            }, 300);
+            
+        } else {
+            loginError.textContent = "Usuário ou senha inválidos";
+            loginError.classList.remove("hidden");
+        }
+
+    } catch (error) {
+        console.error("Erro ao conectar com a API:", error);
+
+        loginError.textContent = "Não foi possível conectar ao servidor.";
         loginError.classList.remove("hidden");
     }
 }

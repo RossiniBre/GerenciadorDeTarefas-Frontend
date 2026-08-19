@@ -36,7 +36,7 @@
     border: 0.2px solid var(--border);
     border-radius: 8px;
     padding: 0.5rem 0.75rem;
-    font: inherit;
+    font: inherit; 
     cursor: pointer;
     transition: background-color 0.2s ease;
 }

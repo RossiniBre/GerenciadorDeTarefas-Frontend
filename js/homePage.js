@@ -1,3 +1,33 @@
+//api
+const API_URL = "http://localhost:8080";
+
+// logged from initial screen
+const token = localStorage.getItem("token");
+
+if (!token) {
+    window.location.href = "/InitialScreen.html";
+}
+
+const logoutButton = document.getElementById("logout-button");
+
+logoutButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    document.body.classList.add("page-transition");
+
+    setTimeout(() => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("username");
+
+        window.location.href = "/InitialScreen.html";
+    }, 300);
+});
+
+//username gretting
+const username = localStorage.getItem("username");
+
+document.getElementById("user-name").textContent = username || "usuário";
+
 //open/close sidebar
 
 const closeBtn = document.querySelector('.close-sidebar');
@@ -7,15 +37,74 @@ closeBtn.addEventListener('click', () => {
   sidebar.classList.toggle('collapsed');
 });
 
+// open/close filter task modal
+
+const filterTaskBtn = document.getElementById("task-button-filter");
+const filterModal = document.getElementById("filter-modal");
+const filterModalClose = document.querySelector(".filter-modal-close");
+const filterBtnCancel = document.getElementById("filter-btn-cancel")
+const filterForm = document.getElementById("filter-task-form");
+
+function filterOpenModal() {
+    filterModal.classList.remove("hidden");
+}
+
+function filterCloseModal() {
+    filterModal.classList.add("hidden");
+    filterForm.reset();
+}
+
+filterTaskBtn.addEventListener("click", filterOpenModal);
+filterModalClose.addEventListener("click", filterCloseModal);
+filterBtnCancel.addEventListener("click", filterCloseModal);
+
+filterModal.addEventListener("click", (event) => {
+    if (event.target === filterModal) {
+        filterCloseModal();
+    }
+});
+
+filterForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const checkboxesMarcados = document.querySelectorAll('input[type="checkbox"]:checked');
+    const activeFiltersContainer = document.getElementById("active-filters");
+    activeFiltersContainer.innerHTML = "";
+
+    for (const checkbox of checkboxesMarcados) {
+        const textoFiltro = checkbox.closest('label').textContent.trim();
+
+        const chip = document.createElement('span');
+        chip.textContent = textoFiltro;
+        chip.classList.add('filter-chip');
+
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = '×';
+        removeBtn.type = 'button';
+        removeBtn.classList.add('filter-chip-remove');
+
+        removeBtn.addEventListener('click', () => {
+            checkbox.checked = false;
+            chip.remove();
+        });
+
+        chip.appendChild(removeBtn);
+        activeFiltersContainer.appendChild(chip);
+    }
+
+     filterModal.classList.add("hidden");
+});
+
 // open/close create task modal
-
-const API_URL = "http://localhost:8080";
-
 const createTaskBtn = document.getElementById("create-task");
 const taskModal = document.getElementById("task-modal");
 const modalClose = document.querySelector(".modal-close");
 const btnCancel = document.querySelector(".btn-cancel");
 const taskForm = document.getElementById("task-form");
+
+const taskTitle = document.getElementById("task-title");
+const taskDate = document.getElementById("task-date");
+const taskPriority = document.getElementById("task-priority");
 
 function openModal() {
     taskModal.classList.remove("hidden");
@@ -24,6 +113,10 @@ function openModal() {
 function closeModal() {
     taskModal.classList.add("hidden");
     taskForm.reset();
+
+    taskTitle.setCustomValidity("");
+    taskDate.setCustomValidity("");
+    taskPriority.setCustomValidity("");
 }
 
 createTaskBtn.addEventListener("click", openModal);
@@ -36,8 +129,29 @@ taskModal.addEventListener("click", (event) => {
     }
 });
 
+[taskTitle, taskDate, taskPriority].forEach((field) => {
+    field.addEventListener("invalid", () => {
+        if (field === taskTitle) {
+            field.setCustomValidity("Digite um título para a tarefa.");
+        } else if (field === taskDate) {
+            field.setCustomValidity("Selecione uma data.");
+        } else if (field === taskPriority) {
+            field.setCustomValidity("Selecione uma prioridade.");
+        }
+    });
+
+    field.addEventListener("input", () => {
+        field.setCustomValidity("");
+    });
+
+    field.addEventListener("change", () => {
+        field.setCustomValidity("");
+    });
+});
+
 taskForm.addEventListener("submit", (event) => {
     event.preventDefault();
+
 });
 
 // dark/light button

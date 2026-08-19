@@ -16,7 +16,7 @@ body {
     font-family: "Josefin Sans", sans-serif;
     color: white;
     font-size: 12rem;
-    text-shadow: 
+    text-shadow:
         0 0 10px #45164A,
         0 0 20px #45164A,
         0 0 30px #45164A;
@@ -74,29 +74,45 @@ body {
 
 .login-button {
     padding: 10px 20px;
-    border: none;
+    border: 0.2px solid white;
     border-radius: 8px;
     background-color: #cccccc;
     color: #333333;
     cursor: not-allowed;
+    font-family: "Inter", sans-serif;
 }
 
 .login-button.active {
+    padding: 0.6rem 1.2rem;
+    border: solid 0.2px white;
+    border-radius: 8px;
     background-color: #45164A;
     color: white;
+    font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.2s ease;
+    opacity: none;
+}
+
+.login-button.active:hover {
+    background-color: #a126af;
 }
 
 .login-error {
     position: absolute;
-    top: 315px;
-    left: 640px;
-    background-color: white;
-    color: black;
+
+    top: 330px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: #45164A;
+    border: 0.2px solid white;
+    color: white;
     font-size: 1.1rem;
     font-family: Inter, sans-serif;
+    font-weight: bold;
     padding: 12px 18px;
-    border-radius: 6px;
+    border-radius: 10px;
     margin: 0;
     display: inline-block;
     opacity: 1;
@@ -133,7 +149,7 @@ body {
     cursor: pointer;
     display: flex;
     align-items: center;
-    color: #fcf9f9; 
+    color: #fcf9f9;
 }
 
 .toggle-password:hover {
@@ -142,4 +158,9 @@ body {
 
 .toggle-password .hidden {
     display: none;
+}
+
+.page-transition {
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
