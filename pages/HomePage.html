@@ -132,6 +132,8 @@
         
         <div id="tasks-container"></div>
 
+        <div id="toast" class="toast"></div>
+
     <div id="task-modal" class="modal hidden">
         <div class="modal-content">
             <div class="modal-header">
@@ -166,6 +168,11 @@
                     </label>
 
                     <label>
+                        Horário
+                        <input type="time" id="task-time" required>
+                    </label>
+
+                    <label>
                         Prioridade
                         <select id="task-priority" required>
                             <option value="LOW">Baixa</option>
@@ -194,6 +201,76 @@
                     Preencha todos os campos obrigatórios.
                 </div>
             </form>
+        </div>
+    </div>
+
+    <div id="task-details-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Detalhes da tarefa</h3>
+                <button type="button" class="modal-close" aria-label="Fechar">&times;</button>
+            </div>
+
+            <form id="task-details-form">
+                <label>
+                    Título
+                    <input type="text" id="details-title" required>
+                </label>
+
+                <label>
+                    Descrição
+                    <textarea id="details-description" rows="4" placeholder="Adicione mais detalhes"></textarea>
+                </label>
+
+                <div class="form-row">
+                    <label>
+                        Data
+                        <input type="date" id="details-date" required>
+                    </label>
+
+                    <label>
+                        Horário
+                        <input type="time" id="details-time" required>
+                    </label>
+
+                    <label>
+                        Prioridade
+                        <select id="details-priority" required>
+                            <option value="LOW">Baixa</option>
+                            <option value="MEDIUM">Média</option>
+                            <option value="HIGH">Alta</option>
+                        </select>
+                    </label>
+                </div>
+
+                <label>
+                    Categoria
+                    <select id="details-category">
+                        <option value="">Sem categoria</option>
+                        <option value="STUDY">Estudo</option>
+                        <option value="WORK">Trabalho</option>
+                        <option value="PERSONAL">Pessoal</option>
+                    </select>
+                </label>
+
+                <div class="modal-actions details-actions">
+                    <button type="button" id="details-btn-delete" class="btn-delete">Excluir</button>
+                    <button type="button" id="details-btn-status" class="btn-status hidden"></button>
+                    <button type="submit" class="btn-submit">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="confirm-delete-modal" class="modal hidden">
+        <div class="modal-content confirm-modal-content">
+            <h3>Excluir tarefa</h3>
+            <p>Tem certeza que deseja excluir essa tarefa? Essa ação não pode ser desfeita.</p>
+
+            <div class="modal-actions">
+                <button type="button" id="confirm-delete-cancel" class="btn-cancel">Cancelar</button>
+                <button type="button" id="confirm-delete-ok" class="btn-delete">Excluir</button>
+            </div>
         </div>
     </div>
 

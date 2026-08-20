@@ -47,3 +47,50 @@
 [data-theme="light"] #task-toolbar {
     border: 0.2px solid black;
 }
+
+[data-theme="light"] input[type="date"]::-webkit-calendar-picker-indicator,
+[data-theme="light"] input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(0);
+}
+
+[data-theme="light"] .task-card {
+    border: 0.2px solid black;
+    background-color: var(--surface);
+}
+
+[data-theme="light"] .task-card-title {
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .task-card-date {
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .task-card-time {
+    color: var(--text-secondary);
+}
+
+[data-theme="light"] .badge-category {
+    border: 0.2px solid black;
+    color: black;
+}
+
+[data-theme="light"] .tasks-empty {
+    color: var(--text-secondary);
+}
+
+[data-theme="light"] .task-card:hover {
+    box-shadow: 0 8px 20px rgba(148, 87, 235, 0.15);
+    border-color: #160C17;
+}
+
+[data-theme="light"] .btn-status {
+    background: var(--surface);
+    border: 0.2px solid black;
+    color: black;
+}
+
+[data-theme="light"] .btn-status:hover {
+    background-color: var(--accent);
+    color: white;
+}
