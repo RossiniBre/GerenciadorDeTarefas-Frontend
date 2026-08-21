@@ -94,3 +94,85 @@ toggleButton.addEventListener('click', () => {
         isPassword ? 'Ocultar senha' : 'Mostrar senha'
     );
 });
+
+// valid token guide to home page, invalid guide to login screen
+async function checkSession() {
+    const token = localStorage.getItem('token'); // chave corrigida
+
+    if (!token) {
+        showForm();
+        return;
+    }
+
+    try {
+        const response = await fetch(`${API_BASE_URL}/users/me`, { // URL corrigida
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (response.ok) {
+            window.location.href = '/pages/HomePage.html'; // mesma rota do login
+            return;
+        }
+
+        if (response.status === 401) {
+            localStorage.removeItem('token');
+            showForm();
+            return;
+        }
+
+        showForm();
+
+    } catch (error) {
+        console.error('Erro ao verificar sessão:', error);
+        showForm();
+    }
+}
+
+document.addEventListener('DOMContentLoaded', checkSession);
+
+// loading
+function showForm() {
+    document.querySelector('.loading-container').classList.add('form-hidden');
+    document.querySelector('.form-login').classList.remove('form-hidden');
+}
+
+function resetToLoading() {
+    document.querySelector('.loading-container').classList.remove('form-hidden');
+    document.querySelector('.form-login').classList.add('form-hidden');
+}
+
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+        resetToLoading();
+        checkSession();
+    }
+});
+
+// transition to register page
+const registerLink = document.querySelector('.link-register');
+
+registerLink.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    document.body.classList.add('page-transition');
+
+    setTimeout(() => {
+        window.location.href = '/pages/RegisterPage.html';
+    }, 300);
+});
+
+// transition to register page
+const register2Link = document.querySelector('.recover-password');
+
+registerLink.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    document.body.classList.add('page-transition');
+
+    setTimeout(() => {
+        window.location.href = '/pages/ForgotPassword.html';
+    }, 300);
+});

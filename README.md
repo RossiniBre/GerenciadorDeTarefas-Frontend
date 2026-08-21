@@ -1,6 +1,6 @@
-# Task Manager — Frontend
+# TaskNexus — Frontend
 
-Frontend application for the **Task Manager** project.
+Frontend application for the **TaskNexus** project.
 
 This project is being developed to learn and practice modern frontend development, starting with the fundamentals of **HTML, CSS, and JavaScript**, and progressively introducing **TypeScript, React, and modern frontend tools**.
 
@@ -10,7 +10,7 @@ The main goal is to build a real application while studying good software engine
 
 ## Backend
 
-This frontend will consume the REST API provided by the Task Manager backend.
+This frontend consumes the REST API provided by the TaskNexus backend.
 
 **Backend Repository:**
 
@@ -18,28 +18,57 @@ https://github.com/RossiniBre/GerenciadorDeTarefas-Backend
 
 ---
 
-What's Implemented
+## What's Implemented
 
-# Phase 1 — Foundation and Prototyping
+### Phase 1 — Foundation and Prototyping
 
-The initial phase focuses on establishing the frontend structure and defining the application's visual identity and user experience.
+The initial phase established the frontend structure and defined the application's visual identity and user experience.
 
-Initial project structure
-Initial interface prototyping
-First integration and testing with the backend API
+* Initial project structure
+* Initial interface prototyping
+* Frontend environment setup
+* First integration and testing with the backend API
+
+### Phase 2 — Authentication
+
+Authentication screens and user flows have been implemented and integrated with the backend.
+
+* User login
+* User registration
+* Password recovery
+* Password reset using a token sent by email
+* Form validation
+* Password visibility controls
+* Navigation between authentication screens
+* Integration with the backend authentication API
+* Authenticated user navigation to the home page
 
 ---
 
-# Architecture
-
----
+## Architecture
 
 ```text
 assets/
 │
 ├── css/
+│   ├── ForgotPasswordStyles/
+│   ├── HomePageStyles/
+│   ├── RegisterPageStyles/
+│   └── ResetPasswordStyles/
+│
 ├── js/
+│   ├── forgotPassword.js
+│   ├── homePage.js
+│   ├── loginScreen.js
+│   ├── registerPage.js
+│   └── resetPassword.js
+│
 ├── pages/
+│   ├── ForgotPassword.html
+│   ├── HomePage.html
+│   ├── RegisterPage.html
+│   └── ResetPassword.html
+│
 └── InitialScreen.html
 ```
 
@@ -50,23 +79,22 @@ The frontend is currently organized by responsibility:
 * `js/` — JavaScript logic and interactions
 * `pages/` — Application pages and interfaces
 
-As the project evolves, this structure will be expanded to support reusable components, API communication, application logic, and eventually the React architecture.
+The architecture will evolve as new features are introduced, eventually incorporating reusable components, centralized API communication, application state management, TypeScript, and React.
 
 ---
 
-# Roadmap
+## Roadmap
 
-| Phase | Status      | Scope                                                      |
-| ----- | ----------- | ---------------------------------------------------------- |
-| 1     | In Progress | Foundation, project structure and interface prototyping    |
-| 2     |     | Authentication screens and user flows                      |
-| 3     |     | Task management screens and interactions                   |
-| 4     |     | Task details, organization and productivity features       |
-| 5     |     | AI assistant interface and integration                     |
-| 6     |     | User profile and account management                        |
-| 7     |     | UI/UX refinement, responsiveness and architecture refinement |
-| 8     |     | Production build and deployment                            |
-
+| Phase | Status      | Scope                                                        |
+| ----- | ----------- | ------------------------------------------------------------ |
+| 1     | Completed   | Foundation, project structure and interface prototyping      |
+| 2     | Completed   | Authentication screens and user flows                        |
+| 3     | In Progress | Task management screens and interactions                     |
+| 4     |      | Task details, organization and productivity features         |
+| 5     |    | AI assistant interface and integration                       |
+| 6     |     | User profile and account management                          |
+| 7     |      | UI/UX refinement, responsiveness and architecture refinement |
+| 8     |     | Production build and deployment                              |
 
 ---
 
@@ -96,3 +124,4 @@ The main goals of this project are:
 * Consume a REST API
 * Apply Clean Code and SOLID principles
 * Practice frontend architecture and software engineering
+* Build a complete full-stack application

@@ -13,11 +13,20 @@
 
     <main class="container">
 
-        <header>
+        <header class="header-logo">
             <h1 class="title">TaskNexus</h1>
         </header>
 
-        <form class="form-login" action="">
+            <div class="loading-container">
+                <p class="loading-message">Carregando</p>
+                <div class="loading-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <form class="form-login form-hidden">
 
             <p class="login-error hidden"></p>
 
@@ -45,8 +54,8 @@
 
                 <div class="links-account">
 
-                    <a href="#">Esqueci minha senha</a>
-                    <a href="#">Criar conta</a>
+                    <a href="pages/ForgotPassword.html" class="recover-password">Esqueci minha senha</a>
+                    <a href="pages/RegisterPage.html" class="link-register">Criar conta</a>
 
                 </div>
 
