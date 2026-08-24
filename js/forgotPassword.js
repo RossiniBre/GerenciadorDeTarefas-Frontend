@@ -53,16 +53,9 @@ form.addEventListener("submit", async function (event) {
 });
 
 // transition to initial screen
-const loginLink = document.querySelector('.back-to-login');
-
 loginLink.addEventListener('click', (event) => {
     event.preventDefault();
-
-    document.body.classList.add('page-transition');
-
-    setTimeout(() => {
-        window.location.href = '/InitialScreen.html';
-    }, 300);
+    navigateWithTransition('/InitialScreen.html');
 });
 
 // fade-in da página

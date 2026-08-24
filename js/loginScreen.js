@@ -156,23 +156,13 @@ const registerLink = document.querySelector('.link-register');
 
 registerLink.addEventListener('click', (event) => {
     event.preventDefault();
-
-    document.body.classList.add('page-transition');
-
-    setTimeout(() => {
-        window.location.href = '/pages/RegisterPage.html';
-    }, 300);
+    navigateWithTransition('/pages/RegisterPage.html');
 });
 
-// transition to register page
-const register2Link = document.querySelector('.recover-password');
+// transition to forgot password page
+const forgotPasswordLink = document.querySelector('.recover-password');
 
-registerLink.addEventListener('click', (event) => {
+forgotPasswordLink.addEventListener('click', (event) => {
     event.preventDefault();
-
-    document.body.classList.add('page-transition');
-
-    setTimeout(() => {
-        window.location.href = '/pages/ForgotPassword.html';
-    }, 300);
+    navigateWithTransition('/pages/ForgotPassword.html');
 });

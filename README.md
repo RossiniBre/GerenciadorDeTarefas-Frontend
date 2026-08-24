@@ -43,29 +43,68 @@ Authentication screens and user flows have been implemented and integrated with 
 * Integration with the backend authentication API
 * Authenticated user navigation to the home page
 
+### Phase 3 — Task Management
+
+Task management functionality has been implemented and integrated with the backend.
+
+* Task creation
+* Task listing
+* Task editing
+* Task deletion
+* Task status management
+* Task priority and category management
+* Task search
+* Task filtering
+* Task details
+* Task date and time handling
+* Task modal interactions
+
+### Phase 4 — User Account Management
+
+User account management functionality has been implemented and integrated with the backend.
+
+* My Account page
+* Display of current user information
+* User details editing
+* Username editing
+* Display name editing
+* Email editing
+* User account deletion
+* Integration with the authenticated user API
+
 ---
 
 ## Architecture
 
 ```text
 assets/
-│
+
 ├── css/
 │   ├── ForgotPasswordStyles/
 │   ├── HomePageStyles/
 │   ├── RegisterPageStyles/
-│   └── ResetPasswordStyles/
+│   ├── ResetPasswordStyles/
+│   ├── MyAccountPageStyles/
+│   └── sidebar.css
 │
 ├── js/
 │   ├── forgotPassword.js
 │   ├── homePage.js
 │   ├── loginScreen.js
 │   ├── registerPage.js
-│   └── resetPassword.js
+│   ├── resetPassword.js
+│   ├── myAccount.js
+│   └── utils/
+│       ├── components.js
+│       ├── transition.js
+        └── sidebar.js
 │
 ├── pages/
+│   ├── components/
+│   │   └── sidebar.frag
 │   ├── ForgotPassword.html
 │   ├── HomePage.html
+│   ├── MyAccount.html
 │   ├── RegisterPage.html
 │   └── ResetPassword.html
 │
@@ -78,6 +117,8 @@ The frontend is currently organized by responsibility:
 * `css/` — Stylesheets and visual presentation
 * `js/` — JavaScript logic and interactions
 * `pages/` — Application pages and interfaces
+* `components/` — Reusable HTML components shared across application pages
+* `utils/` — Shared JavaScript utilities and application-wide behavior
 
 The architecture will evolve as new features are introduced, eventually incorporating reusable components, centralized API communication, application state management, TypeScript, and React.
 
@@ -89,12 +130,12 @@ The architecture will evolve as new features are introduced, eventually incorpor
 | ----- | ----------- | ------------------------------------------------------------ |
 | 1     | Completed   | Foundation, project structure and interface prototyping      |
 | 2     | Completed   | Authentication screens and user flows                        |
-| 3     | In Progress | Task management screens and interactions                     |
-| 4     |      | Task details, organization and productivity features         |
-| 5     |    | AI assistant interface and integration                       |
-| 6     |     | User profile and account management                          |
-| 7     |      | UI/UX refinement, responsiveness and architecture refinement |
-| 8     |     | Production build and deployment                              |
+| 3     | Completed   | Task management screens and interactions                     |
+| 4     | Completed   | User account management and profile features                 |
+| 5     | In Progress | Task organization, productivity and calendar features        |
+| 6     |             | AI assistant interface and integration                       |
+| 7     |             | UI/UX refinement, responsiveness and architecture refinement |
+| 8     |             | Production build and deployment                              |
 
 ---
 

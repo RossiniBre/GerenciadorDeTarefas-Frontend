@@ -10,6 +10,12 @@ body {
     justify-content: center;
     min-height: 100vh;
     gap: 6rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.container.visible {
+    opacity: 1;
 }
 
 .title {

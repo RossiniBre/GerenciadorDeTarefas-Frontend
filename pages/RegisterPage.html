@@ -28,27 +28,32 @@
             <p class="login-error hidden"></p>
 
             <div class="login-fields">
-                <input type="text" placeholder="Nome de usuário" class="user-field">
                 <input type="email" placeholder="Email" class="email-field">
 
                 <div class="password-row">
+                    <input type="text" placeholder="Nome de usuário" class="user-field">
+                    <input type="text" placeholder="Nome de exibição" class="display-name-field">
+                </div>
 
+                <div class="password-row">
                     <div class="password-wrapper">
                         <input type="password" placeholder="Senha" class="password-field">
                         <button type="button" class="toggle-password" data-target="password-field" aria-label="Mostrar senha">
+
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" class="icon-eye-open">
                                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
                                 <circle cx="12" cy="12" r="3"/>
                             </svg>
+
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" class="icon-eye-closed hidden">
                                 <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/>
                                 <path d="M10.73 5.08A11 11 0 0 1 12 5c7 0 11 8 11 8a18.5 18.5 0 0 1-2.34 3.5"/>
                                 <path d="M6.61 6.61A18.5 18.5 0 0 0 1 13s4 8 11 8a10.6 10.6 0 0 0 5.39-1.61"/>
                                 <path d="M1 1l22 22"/>
                             </svg>
-                        </button>
-                    </div>
 
+                        </button>
+                     </div>
                     <div class="password-wrapper">
                         <input type="password" placeholder="Confirmar senha" class="confirm-password-field">
                         <button type="button" class="toggle-password" data-target="confirm-password-field" aria-label="Mostrar senha">
@@ -71,7 +76,7 @@
             <div class="register-recuperation">
 
                 <div class="links-account">
-                    <a href="/InitialScreen.html" class="link-login">Já tenho conta</a>
+                    <a href="/InitialScreen.html" class="link-login">Já possuo uma conta</a>
                 </div>
 
                 <button class="login-button" type="submit" disabled>CRIAR CONTA</button>
@@ -82,6 +87,7 @@
 
     </main>
 
+    <script src="/js/utils/transition.js"></script>
     <script src="/js/registerPage.js"></script>
 
 </body>

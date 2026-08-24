@@ -1,0 +1,45 @@
+[data-theme="light"] .container {
+    background-color: #ffffff;
+}
+
+[data-theme="light"] .infos h2 {
+    color: #1a1a1a;
+}
+
+[data-theme="light"] .infos h3 {
+    color: #6b6b6b;
+}
+
+[data-theme="light"] .field input {
+    background-color: #f5f5f5;
+    border-color: #d1d1d1;
+    color: #1a1a1a;
+}
+
+[data-theme="light"] .field label {
+    color: #6b6b6b;
+}
+
+[data-theme="light"] #save-infos {
+    background-color: #45164A;
+    color: white;
+    border: 0.2px solid #d1d1d1;
+}
+
+[data-theme="light"] #save-infos:hover {
+    background-color: #a126af;
+    color: white;
+    border: 0.2px solid #d1d1d1;
+}
+
+[data-theme="light"] .reset-password-link {
+    background-color: var(--surface);
+    color: var(--text-secondary);
+    border: 0.2px solid white;
+    border-radius: 10px;
+}
+
+[data-theme="light"] .reset-password-link:hover  {
+    background-color: #45164A;
+    color: white;
+}

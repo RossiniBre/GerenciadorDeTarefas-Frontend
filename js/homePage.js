@@ -34,43 +34,49 @@ if (!token) {
     window.location.href = "/InitialScreen.html";
 }
 
-const logoutButton = document.getElementById("logout-button");
-
-logoutButton.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    document.body.classList.add("page-transition");
-
-    setTimeout(() => {
-        localStorage.removeItem("token");
-        localStorage.removeItem("username");
-
-        window.location.href = "/InitialScreen.html";
-    }, 300);
-});
-
 //username gretting
-const username = localStorage.getItem("username");
+async function loadUserGreeting() {
+    const token = localStorage.getItem("token");
 
-document.getElementById("user-name").textContent = username || "usuário";
+    if (!token) {
+        window.location.href = "InitialScreen.html";
+        return;
+    }
+
+    try {
+        const response = await fetch(`${API_URL}/users/me`, {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        });
+
+        if (response.status === 401) {
+            localStorage.removeItem("token");
+            window.location.href = "InitialScreen.html";
+            return;
+        }
+
+        if (!response.ok) {
+            throw new Error("Não foi possível carregar o usuário.");
+        }
+
+        const user = await response.json();
+
+        document.getElementById("user-name").textContent =
+            user.displayName || "Usuário";
+
+    } catch (error) {
+        console.error("Erro ao carregar usuário:", error);
+        document.getElementById("user-name").textContent = "Usuário";
+    }
+}
+
+document.addEventListener("DOMContentLoaded", loadUserGreeting);
 
 // getting tasks of the user
 if (!token) {
     window.location.href = "/InitialScreen.html";
 }
-
-async function loadTasks() {
-    const response = await fetch(`${API_URL}/tasks`, {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    });
-
-    const data = await response.json();
-    renderTasks(data);
-}
-
-loadTasks();
 
 function statusLabel(status) {
     const map = {
@@ -395,15 +401,6 @@ document.getElementById("task-form").addEventListener("submit", function(event) 
         sendInfos();
     
     });
-    
-//open/close sidebar
-
-const closeBtn = document.querySelector('.close-sidebar');
-const sidebar = document.querySelector('aside');
-
-closeBtn.addEventListener('click', () => {
-  sidebar.classList.toggle('collapsed');
-});
 
 // open/close filter task modal
 
@@ -566,6 +563,14 @@ const sunIcon = `
     </svg>
 `;
 
+if (page.dataset.theme === "light") {
+    themeToggle.innerHTML = sunIcon;
+    themeToggle.setAttribute("aria-label", "Ativar tema escuro");
+} else {
+    themeToggle.innerHTML = moonIcon;
+    themeToggle.setAttribute("aria-label", "Ativar tema claro");
+}
+
 themeToggle.addEventListener("click", () => {
     const lightModeIsActive = page.dataset.theme === "light";
 
@@ -573,10 +578,12 @@ themeToggle.addEventListener("click", () => {
         page.removeAttribute("data-theme");
         themeToggle.innerHTML = moonIcon;
         themeToggle.setAttribute("aria-label", "Ativar tema claro");
+        localStorage.setItem("theme", "dark");
     } else {
         page.dataset.theme = "light";
         themeToggle.innerHTML = sunIcon;
         themeToggle.setAttribute("aria-label", "Ativar tema escuro");
+        localStorage.setItem("theme", "light");
     }
 });
 
@@ -620,6 +627,8 @@ async function loadTasks() {
     allTasks = data;
     applyFilters();
 }
+
+loadTasks(); 
 
 function applyFilters() {
     const searchTerm = searchInput.value.trim().toLowerCase();

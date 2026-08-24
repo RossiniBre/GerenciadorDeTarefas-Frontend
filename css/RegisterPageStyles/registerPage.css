@@ -14,6 +14,12 @@ body {
     justify-content: center;
     min-height: 100vh;
     gap: 6rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.container.visible {
+    opacity: 1;
 }
 
 .title {
@@ -48,7 +54,8 @@ body {
 .user-field,
 .email-field,
 .password-field,
-.confirm-password-field {
+.confirm-password-field,
+.display-name-field {
     padding: 16px 50px 16px 20px;
     border: 1px solid white;
     border-radius: 8px;

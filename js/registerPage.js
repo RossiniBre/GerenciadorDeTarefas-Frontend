@@ -9,6 +9,7 @@ const passwordField = document.querySelector(".password-field");
 const confirmPasswordField = document.querySelector(".confirm-password-field");
 const loginError = document.querySelector(".login-error");
 const form = document.querySelector("#registerForm");
+const displayNameField = document.querySelector(".display-name-field");
 
 // custom validation message for email
 emailField.addEventListener('invalid', () => {
@@ -24,12 +25,14 @@ userField.addEventListener("input", verifyFields);
 emailField.addEventListener("input", verifyFields);
 passwordField.addEventListener("input", verifyFields);
 confirmPasswordField.addEventListener("input", verifyFields);
+displayNameField.addEventListener("input", verifyFields);  // faltando
 
 function verifyFields() {
     const fieldsFilled =
         userField.value.trim() !== "" &&
         emailField.value.trim() !== "" &&
         passwordField.value.trim() !== "" &&
+        displayNameField.value.trim() !== "" &&
         confirmPasswordField.value.trim() !== "";
 
     const passwordsMatch = passwordField.value === confirmPasswordField.value;
@@ -70,6 +73,7 @@ async function verifyRegister(event) {
             body: JSON.stringify({
                 username: userField.value.trim(),
                 email: emailField.value.trim(),
+                displayName: displayNameField.value.trim(),
                 password: passwordField.value
             })
         });

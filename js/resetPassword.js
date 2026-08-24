@@ -102,3 +102,11 @@ toggleButtons.forEach(function (toggleButton) {
         );
     });
 });
+
+// transition to initial screen
+const loginLink = document.querySelector('.back-to-login');
+
+loginLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    navigateWithTransition('../InitialScreen.html');
+});

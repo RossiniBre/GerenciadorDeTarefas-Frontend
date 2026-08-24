@@ -1,0 +1,171 @@
+.infos {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+}
+
+.infos h2 {
+    font-size: 40px;
+    margin-bottom: 6px;
+}
+
+.infos h3 {
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.infos p {
+    font-size: 30px;
+    white-space: nowrap;
+}
+
+.fields-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 28px;
+    margin-bottom: 40px;
+}
+
+.field {
+    position: relative;
+    border: solid 0.2px var(--border);
+    border-radius: 8px;
+    padding: 18px;
+    min-height: 84px;
+    display: flex;
+    align-items: flex-end;
+    background-color: var(--surface);
+}
+
+.field input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-primary);
+    font: inherit;
+    font-size: 16px;
+    padding: 6px 2px 4px;
+    outline: none;
+}
+
+.field input:focus {
+    border-bottom-color: #a126af;
+}
+
+.field label {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: var(--text-primary);
+    pointer-events: none;
+    transition: top 0.2s ease, transform 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+}
+
+.field input:focus ~ label,
+.field input:not(:placeholder-shown) ~ label {
+    top: 14px;
+    transform: translateY(0);
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.field-password {
+    padding: 0;
+    transition: background-color 0.2s ease;
+}
+
+.reset-password-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 21px;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.reset-password-link:hover {
+    background-color: #a126af;
+}
+
+#account-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#save-infos {
+    padding: 11px 26px;
+    border: solid 0.2px var(--border);
+    border-radius: 8px;
+    background-color: var(--accent);
+    color: var(--text-primary);
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#save-infos:hover {
+    background-color: #a126af;
+}
+
+#delete-account {
+    padding: 11px 26px;
+    border: none;
+    border-radius: 8px;
+    background-color: #751513;
+    color: white;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#delete-account:hover {
+    background-color: #e5233d;
+}
+
+.user-identity {
+    display: flex;
+    flex-direction: column;
+    font-size: 40px;
+}
+
+.toast {
+    position: fixed;
+    top: 570px;
+    left: 56%;
+    transform: translateX(-50%);
+    background-color: #a126af;
+    border: 0.2px solid white;
+    color: white;
+    font-family: Inter, sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 10px 24px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.container {
+    position: relative;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
