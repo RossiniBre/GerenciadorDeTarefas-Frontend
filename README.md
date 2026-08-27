@@ -72,6 +72,20 @@ User account management functionality has been implemented and integrated with t
 * User account deletion
 * Integration with the authenticated user API
 
+### Phase 5 — Task Organization and Calendar
+
+Task organization and calendar functionality have been implemented and integrated with the existing task management features.
+
+* Calendar page
+* Calendar-based task visualization
+* Dynamic task rendering by date
+* Task date and time handling
+* Task organization by day
+* Calendar navigation
+* Integration with existing task data
+* Calendar-specific styling
+* Light mode support for the calendar
+
 ---
 
 ## Architecture
@@ -79,29 +93,41 @@ User account management functionality has been implemented and integrated with t
 ```text
 assets/
 
+├── images/
+│   └── Favicon.ico
+│
 ├── css/
+│   ├── CalendarPageStyles/
+│   │   ├── calendarPage.css
+│   │   └── light-mode.css
+│   │
 │   ├── ForgotPasswordStyles/
 │   ├── HomePageStyles/
+│   ├── MyAccountPageStyles/
 │   ├── RegisterPageStyles/
 │   ├── ResetPasswordStyles/
-│   ├── MyAccountPageStyles/
-│   └── sidebar.css
+│   └── loginScreen.css
 │
 ├── js/
+│   ├── calendarPage.js
 │   ├── forgotPassword.js
 │   ├── homePage.js
 │   ├── loginScreen.js
+│   ├── myAccount.js
 │   ├── registerPage.js
 │   ├── resetPassword.js
-│   ├── myAccount.js
+│   │
 │   └── utils/
 │       ├── components.js
-│       ├── transition.js
-        └── sidebar.js
+│       ├── sidebar.js
+│       ├── tasks.js
+│       └── transition.js
 │
 ├── pages/
 │   ├── components/
 │   │   └── sidebar.frag
+│   │
+│   ├── CalendarPage.html
 │   ├── ForgotPassword.html
 │   ├── HomePage.html
 │   ├── MyAccount.html
@@ -114,11 +140,12 @@ assets/
 The frontend is currently organized by responsibility:
 
 * `assets/` — Static resources used by the application
+* `assets/images/` — Images and visual assets used by the application
 * `css/` — Stylesheets and visual presentation
 * `js/` — JavaScript logic and interactions
+* `js/utils/` — Shared JavaScript utilities and application-wide behavior
 * `pages/` — Application pages and interfaces
-* `components/` — Reusable HTML components shared across application pages
-* `utils/` — Shared JavaScript utilities and application-wide behavior
+* `pages/components/` — Reusable HTML components shared across application pages
 
 The architecture will evolve as new features are introduced, eventually incorporating reusable components, centralized API communication, application state management, TypeScript, and React.
 
@@ -132,8 +159,8 @@ The architecture will evolve as new features are introduced, eventually incorpor
 | 2     | Completed   | Authentication screens and user flows                        |
 | 3     | Completed   | Task management screens and interactions                     |
 | 4     | Completed   | User account management and profile features                 |
-| 5     | In Progress | Task organization, productivity and calendar features        |
-| 6     |             | AI assistant interface and integration                       |
+| 5     | Completed   | Task organization, productivity and calendar features        |
+| 6     | In Progress | AI assistant interface and integration                       |
 | 7     |             | UI/UX refinement, responsiveness and architecture refinement |
 | 8     |             | Production build and deployment                              |
 

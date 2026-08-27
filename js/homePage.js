@@ -1,6 +1,3 @@
-//api
-const API_URL = "http://localhost:8080";
-
 // block past dates
 const now = new Date();
 
@@ -28,7 +25,6 @@ document.getElementById('task-date').addEventListener("change", function() {
 });
 
 // logged from initial screen
-const token = localStorage.getItem("token");
 
 if (!token) {
     window.location.href = "/InitialScreen.html";
@@ -253,7 +249,7 @@ async function changeTaskStatus(taskId, action) {
         if (response.ok) {
             showToast(action === "start" ? "Tarefa iniciada!" : "Tarefa concluída!");
             closeTaskDetailsModal();
-            loadTasks();
+            refreshTasks()
         } else {
             const errorData = await response.json();
             showToast(errorData.error || "Não foi possível atualizar a tarefa.");
@@ -298,7 +294,7 @@ confirmDeleteOk.addEventListener("click", async () => {
             confirmDeleteModal.classList.add("hidden");
             showToast("Tarefa excluída.");
             closeTaskDetailsModal();
-            loadTasks();
+            refreshTasks()
         } else {
             showToast("Não foi possível excluir a tarefa.");
         }
@@ -335,7 +331,7 @@ taskDetailsForm.addEventListener("submit", async (event) => {
         if (response.ok) {
             showToast("Tarefa atualizada!");
             closeTaskDetailsModal();
-            loadTasks();
+            refreshTasks()
         } else {
             if (infoData.error === "dueDate não pode estar no passado") {
                 showToast("A data e o horário da tarefa não podem estar no passado.");
@@ -384,7 +380,7 @@ document.getElementById("task-form").addEventListener("submit", function(event) 
             if (response.ok) {
                 closeModal();
                 showToast("Tarefa criada com sucesso!");
-                loadTasks();
+                refreshTasks()
             } else {
                 if (infoData.error === "dueDate não pode estar no passado") {
                     showToast("A data e o horário da tarefa não podem estar no passado.");
@@ -616,20 +612,6 @@ function showToast(message) {
 // filter tasks
 let allTasks = [];
 
-async function loadTasks() {
-    const response = await fetch(`${API_URL}/tasks`, {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    });
-
-    const data = await response.json();
-    allTasks = data;
-    applyFilters();
-}
-
-loadTasks(); 
-
 function applyFilters() {
     const searchTerm = searchInput.value.trim().toLowerCase();
 
@@ -648,3 +630,11 @@ function applyFilters() {
 
     renderTasks(filtered);
 }
+
+//refresh
+async function refreshTasks() {
+    allTasks = await loadTasks();
+    applyFilters();
+}
+
+refreshTasks();

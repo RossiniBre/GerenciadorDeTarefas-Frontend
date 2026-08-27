@@ -1,0 +1,224 @@
+#month-infos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#month-infos h1 {
+    font-size: 2rem;
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.header-actions button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.header-actions button:hover {
+    background: var(--accent-pink);
+    border-color: var(--accent-pink);
+}
+
+.header-actions svg {
+    pointer-events: none;
+}
+
+#week-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    margin-bottom: 4px;
+}
+
+.week-day {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    color: white;
+}
+
+.week-day:not(:last-child)::after {
+    content: "|";
+    position: absolute;
+    right: -9px;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+#calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.day-cell,
+.empty-cell {
+    box-sizing: border-box;
+    min-height: 90px;
+    padding: 10px;
+    background-color: var(--background);
+    font-family: inherit;
+    text-align: right;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+div.day-cell {
+    cursor: default;
+}
+
+button.day-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    width: 100%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button.day-cell:hover {
+    background: #341d36;
+}
+
+button.day-cell:focus-visible {
+    box-shadow: inset 0 0 0 2px var(--accent-pink);
+}
+
+.day-number {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.has-tasks .day-number {
+    color: var(--accent-pink);
+    font-weight: 900;
+}
+
+.day-tasks {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+    width: 100%;
+}
+
+.task-chip {
+    max-width: 100%;
+    padding: 4px 12px;
+    border-radius: 4px;
+    background: #45164A;
+    color: var(--text-primary);
+    border: 0.2px solid white;
+    font-size: 0.75rem;
+    font-weight: 300;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.task-more {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    font-weight: 700;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modal-overlay.hidden {
+    display: none;
+}
+
+.modal-box {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 28px;
+    min-width: 320px;
+    max-width: 420px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.modal-box h2 {
+    margin-bottom: 18px;
+    color: var(--text-primary);
+    font-size: 1.3rem;
+}
+
+.modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.modal-tag {
+    padding: 5px 12px;
+    border-radius: 4px;
+    background: #421447;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: var(--text-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.modal-task-item {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-task-item:last-child {
+    border-bottom: none;
+}
+
+.modal-task-title {
+    margin-bottom: 10px;
+    color: var(--text-primary);
+    font-size: 1.05rem;
+}
+
+.modal-box {
+    max-height: 70vh;
+    overflow-y: auto;
+}

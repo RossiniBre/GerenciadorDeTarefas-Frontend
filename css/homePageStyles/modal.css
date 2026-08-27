@@ -334,8 +334,6 @@ input[type="checkbox"] {
     background: #a126af;
 }
 
-/* task details modal - mesmo padrão do task-form */
-
 #task-details-form {
     display: flex;
     flex-direction: column;
