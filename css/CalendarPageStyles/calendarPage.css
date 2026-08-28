@@ -222,3 +222,12 @@ button.day-cell:focus-visible {
     max-height: 70vh;
     overflow-y: auto;
 }
+
+.day-cell.today {
+    background-color: #521452;
+}
+
+.day-cell.today .day-number {
+    color: white;
+    font-weight: 900;
+}

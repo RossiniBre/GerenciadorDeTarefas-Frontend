@@ -1,0 +1,162 @@
+#nexus-ia-wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 12vh;
+    zoom: 1.2;
+}
+
+#greeting {
+    width: 100%;
+    margin-bottom: 10rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#nexus-label {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin: 0 0 1.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+    top: -60px;
+}
+
+.dot-separator {
+    color: gray;
+    font-size: 1rem;
+    line-height: 1;
+    display: inline-block;
+}
+
+#nexus-mini-icon {
+    width: 24px; 
+    height: 24px;
+    vertical-align: middle;
+    border-radius: 5px;
+    margin-top: -2px;
+}
+
+#greeting h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+#chat-messages {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#chat-messages:empty {
+    display: none;
+}
+
+#message-tool {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    right: 40px;
+    border: 0.2px solid var(--border);
+    padding: 12px;
+    border-radius: 14px;
+    margin-bottom: 3rem;  
+    box-sizing: border-box;
+}
+
+#message-to-IA {
+    flex: 1;
+    background-color: transparent;
+    color: var(--text-primary);
+    font: inherit;
+    padding: 0.5rem;
+    outline: none;
+    border: none;
+}
+
+#message-to-IA::placeholder {
+    color: var(--text-secondary);
+}
+
+#submit-to-IA {
+    background-color: var(--accent);
+    color: white;
+    border: 0.2px solid var(--border);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    flex-shrink: 0;
+}
+
+#submit-to-IA:hover {
+    background-color: #a126af;
+}
+
+#suggestions-buttons {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+#suggestions-buttons {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.suggestion-item {
+    flex: 0 1 calc(33.333% - 0.75rem);
+    box-sizing: border-box;
+    min-width: 200px;
+}
+
+.suggestion-item:nth-child(4),
+.suggestion-item:nth-child(5) {
+    grid-column: span 1;
+}
+
+.suggestion-item button {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+    background-color: var(--surface);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.suggestion-item button:hover {
+    background-color: var(--accent);
+    border-color: var(--accent-pink);
+}
+
+main.container {
+    display: flex;
+}
+
+#nexus-icon {
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1rem auto;
+}
+
+.chat-message {
+    white-space: pre-line;
+}

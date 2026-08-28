@@ -58,6 +58,12 @@ function renderGrid(tasksByDay){
     const grid = document.getElementById("calendar-grid");
     grid.innerHTML = "";
 
+    // dados do dia real, calculados uma vez
+    const today = new Date();
+    const isCurrentMonth =
+        today.getMonth() === actualMonth &&
+        today.getFullYear() === year;
+
     for (let i = 0; i < FirstOfTheMonth; i++) {
         const emptyCell = document.createElement("div");
         emptyCell.classList.add("empty-cell");
@@ -75,6 +81,11 @@ function renderGrid(tasksByDay){
 
         const dayCell = document.createElement(hasTasks ? "button" : "div");
         dayCell.classList.add("day-cell");
+
+        // marca o dia atual
+        if (isCurrentMonth && day === today.getDate()) {
+            dayCell.classList.add("today");
+        }
 
         const dayNumber = document.createElement("span");
         dayNumber.classList.add("day-number");
@@ -150,7 +161,8 @@ const STATUS_LABELS = {
 const CATEGORY_LABELS = {
     uncategorized: "Sem categoria",
     work: "Trabalho",
-    study: "Estudo"
+    study: "Estudo",
+    personal: "Pessoal"
 };
 
 const PRIORITY_LABELS = {
@@ -172,7 +184,7 @@ function openTaskModal(tasks) {
     list.innerHTML = "";
 
     const dateLabel = new Date(tasks[0].dueDate).toLocaleDateString("pt-br");
-    document.getElementById("modal-date").textContent = dateLabel; // reparei que isso também tinha sumido, o modal não estava recebendo a data
+    document.getElementById("modal-date").textContent = dateLabel;
 
     tasks.forEach(task => {
         const item = document.createElement("div");

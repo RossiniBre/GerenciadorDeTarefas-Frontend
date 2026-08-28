@@ -1,0 +1,48 @@
+[data-theme="light"] #message-tool {
+    background-color: transparent;
+    border-color: #ccc;
+    border: 0.2px solid var(--accent); 
+}
+
+[data-theme="light"] #message-to-IA::placeholder {
+    color: #777;
+}
+
+[data-theme="light"] #submit-to-IA {
+    background-color: var(--accent-pink);
+    border-color: #ccc;
+    color: white;
+    border: 0.2px solid var(--accent); 
+}
+
+[data-theme="light"] #submit-to-IA:hover {
+    background-color: var(--accent);
+}
+
+[data-theme="light"] #suggestions-buttons button {
+    background-color: transparent;
+    color: #1a1a1a;
+    font-weight: bold;
+    border: 0.2px solid var(--accent); 
+}
+
+[data-theme="light"] #suggestions-buttons button:hover {
+    background-color: #e0d0e5;
+    border-color: rgb(46, 14, 46);
+}
+
+[data-theme="light"] #nexus-label {
+    font-size: 1rem;
+    color: #45164A;
+    margin: 0 0 1.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+    top: -60px;
+}
+
+[data-theme="light"] .dot-separator {
+    color: #45164A;
+}
