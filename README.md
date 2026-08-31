@@ -86,6 +86,30 @@ Task organization and calendar functionality have been implemented and integrate
 * Calendar-specific styling
 * Light mode support for the calendar
 
+### Phase 6 — Nexus IA
+
+The **Nexus IA** assistant has been integrated into the frontend, providing a conversational interface for interacting with the TaskNexus task management system.
+
+The assistant communicates with the backend AI system and supports contextual conversations and task-related actions.
+
+* Nexus IA interface
+* Conversational chat interface
+* Conversation context persistence
+* Clear conversation functionality
+* Task creation through natural language
+* Task editing through natural language
+* Task deletion through natural language
+* Task-related information and queries
+* Self-description and assistant capabilities
+* Context-aware follow-up interactions
+* Requests for missing information when necessary
+* Confirmation flows for task actions
+* Refusal of requests outside the assistant's defined scope
+* Integration with the Nexus IA backend API
+* Light mode support for the assistant interface
+
+The AI behavior, supported actions, validation, context management, and scope restrictions are handled by the backend, while the frontend provides the user interface and interaction layer.
+
 ---
 
 ## Architecture
@@ -104,6 +128,9 @@ assets/
 │   ├── ForgotPasswordStyles/
 │   ├── HomePageStyles/
 │   ├── MyAccountPageStyles/
+│   ├── NexusIAStyles/
+│   │   ├── nexusIA.css
+│   │   └── light-mode.css
 │   ├── RegisterPageStyles/
 │   ├── ResetPasswordStyles/
 │   └── loginScreen.css
@@ -114,6 +141,7 @@ assets/
 │   ├── homePage.js
 │   ├── loginScreen.js
 │   ├── myAccount.js
+│   ├── nexusIA.js
 │   ├── registerPage.js
 │   ├── resetPassword.js
 │   │
@@ -131,6 +159,7 @@ assets/
 │   ├── ForgotPassword.html
 │   ├── HomePage.html
 │   ├── MyAccount.html
+│   ├── NexusIA.html
 │   ├── RegisterPage.html
 │   └── ResetPassword.html
 │
@@ -160,8 +189,8 @@ The architecture will evolve as new features are introduced, eventually incorpor
 | 3     | Completed   | Task management screens and interactions                     |
 | 4     | Completed   | User account management and profile features                 |
 | 5     | Completed   | Task organization, productivity and calendar features        |
-| 6     | In Progress | AI assistant interface and integration                       |
-| 7     |             | UI/UX refinement, responsiveness and architecture refinement |
+| 6     | Completed   | Nexus IA interface and AI-powered task management            |
+| 7     | In Progress | UI/UX refinement, responsiveness and architecture refinement |
 | 8     |             | Production build and deployment                              |
 
 ---
@@ -193,3 +222,4 @@ The main goals of this project are:
 * Apply Clean Code and SOLID principles
 * Practice frontend architecture and software engineering
 * Build a complete full-stack application
+* Explore AI-powered interactions in a real-world application

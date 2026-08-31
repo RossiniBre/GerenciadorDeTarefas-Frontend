@@ -27,14 +27,26 @@
 
     <div id="sidebar-container"></div>
 
+    <div id="confirm-modal-overlay" class="hidden">
+        <div id="confirm-modal-box">
+            <p id="confirm-modal-text">Tem certeza que quer limpar toda a conversa?</p>
+            <div id="confirm-modal-actions">
+                <button type="button" id="confirm-modal-cancel">Cancelar</button>
+                <button type="button" id="confirm-modal-ok">Limpar</button>
+            </div>
+        </div>
+    </div>
+
     <main class="container page-transition">
 
-        <div id="nexus-ia-wrapper">
+        <p id="nexus-label">
+            Nexus IA <span class="dot-separator">•</span>
+            <img src="/assets/Favicon.ico" alt="" id="nexus-mini-icon">
+        </p>
 
-            <p id="nexus-label">
-                    Nexus IA <span class="dot-separator">•</span>
-                    <img src="/assets/Favicon.ico" alt="" id="nexus-mini-icon">
-            </p>
+        <button type="button" id="clear-chat-btn" title="Limpar conversa">Limpar conversa</button>
+
+        <div id="nexus-ia-wrapper">
 
             <header id="greeting">
                 <h2>Olá <span id="user-name">Usuário</span>, Como posso te ajudar?</h2>
@@ -47,7 +59,7 @@
                 <button type="button" id="submit-to-IA">Enviar</button>
             </div>
 
-                        <div id="suggestions-buttons">
+            <div id="suggestions-buttons">
                 <div class="suggestion-item">
                     <button type="button">O que tenho para hoje?</button>
                 </div>

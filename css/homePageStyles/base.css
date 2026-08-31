@@ -54,3 +54,32 @@ body.page-transition {
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
 }
+
+html {
+    scrollbar-width: auto;
+    scrollbar-color: white #1a0f1f;
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+    width: 14px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a0f1f;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #b0b0b0;
+    border: 3px solid #1a0f1f;
+    border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #c9c9c9;
+}
+
+::-webkit-scrollbar-button {
+    background-color: #1a0f1f;
+    height: 14px;
+}

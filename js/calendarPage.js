@@ -29,18 +29,19 @@ document.getElementById("next-month").addEventListener("click", () => changeMont
 document.getElementById("prev-month").addEventListener("click", () => changeMonth(-1))
 
 //show tasks by day
-function groupTaskByDay(tasks){
+function groupTaskByDay(tasks) {
+    const tasksByDay = {};
 
-    const tasksByDay = {}
+    for (const task of tasks) {
+        if (!task.dueDate) continue;
 
-    for (const task of tasks){
         const key = task.dueDate.substring(0, 10);
 
-        if (!(key in tasksByDay)){
+        if (!(key in tasksByDay)) {
             tasksByDay[key] = [];
         }
 
-       tasksByDay[key].push(task)
+        tasksByDay[key].push(task);
     }
 
     return tasksByDay;
@@ -58,7 +59,6 @@ function renderGrid(tasksByDay){
     const grid = document.getElementById("calendar-grid");
     grid.innerHTML = "";
 
-    // dados do dia real, calculados uma vez
     const today = new Date();
     const isCurrentMonth =
         today.getMonth() === actualMonth &&
@@ -82,7 +82,7 @@ function renderGrid(tasksByDay){
         const dayCell = document.createElement(hasTasks ? "button" : "div");
         dayCell.classList.add("day-cell");
 
-        // marca o dia atual
+        // mark actual day
         if (isCurrentMonth && day === today.getDate()) {
             dayCell.classList.add("today");
         }

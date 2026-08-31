@@ -115,11 +115,9 @@ function showSuccessToast() {
         }, 300);
     };
 
-    // fecha manualmente
     const closeButton = toast.querySelector('.toast-close');
     closeButton.addEventListener('click', redirect);
 
-    // ou fecha sozinho depois de alguns segundos
     setTimeout(redirect, 3000);
 }
 

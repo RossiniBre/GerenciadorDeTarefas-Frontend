@@ -57,7 +57,6 @@
     gap: 10px;
 }
 
-/* roxo */
 .status-in_progress { background: #5a4075; color: #fff; border: 0.2px solid white; }
 .status-pending { background: #48325f; color: #fff; border: 0.2px solid white; }
 .status-completed { background: #6b4b88; color: #fff; border: 0.2px solid white; }

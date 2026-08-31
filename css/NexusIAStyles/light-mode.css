@@ -40,9 +40,18 @@
     justify-content: center;
     gap: 0.5rem;
     position: relative;
-    top: -60px;
 }
 
 [data-theme="light"] .dot-separator {
     color: #45164A;
+}
+
+[data-theme="light"] #nexus-ia-wrapper.chat-active #chat-messages {
+    scrollbar-width: thin;
+    scrollbar-color: #45164A transparent;
+}
+
+[data-theme="light"] #nexus-label {
+    color: #45164A;
+    background-color: white;
 }
