@@ -1,0 +1,77 @@
+.success-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.success-modal {
+    background-color: #1f0f22;
+    border: 1px solid white;
+    border-radius: 16px;
+    padding: 48px 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    box-shadow: 0 0 40px rgba(69, 22, 74, 0.8);
+    animation: popIn 0.3s ease;
+}
+
+.success-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: #45164A;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.success-modal h2 {
+    color: white;
+    font-family: Inter, sans-serif;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.success-modal p {
+    color: #cccccc;
+    font-family: Inter, sans-serif;
+    font-size: 1rem;
+    margin: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* delete account toast */
+.success-modal.danger {
+    border-color: #e5233d;
+    box-shadow: 0 0 40px rgba(117, 21, 19, 0.8);
+}
+
+.success-icon.danger {
+    background-color: #751513;
+}

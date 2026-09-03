@@ -1,0 +1,15 @@
+#tasks-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.tasks-empty {
+    color: var(--text-secondary);
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 155px;
+    font-size: 20px;
+    font-weight: bold;
+}

@@ -1,0 +1,33 @@
+:root {
+    --background: #160C17;
+    --surface: #201022;
+    --text-primary: white;
+    --text-secondary: #aaa7a7;
+    --border: white;
+
+    --accent: #45164A;
+    --accent-pink: #a126af;
+
+    --button-bg: #45164A;
+    --button-text: white;
+    --button-hover: #160C17;
+    --empty-cell: #2d1830;
+    --gradient: linear-gradient(135deg, #2B0D30, #5A1763);
+}
+
+[data-theme="light"] {
+    --background: #FFFFFF;
+    --surface: #F5F3F5;
+    --text-primary: #160C17;
+    --text-secondary: #5F5960;
+    --border: #160C17;
+
+    --accent: #45164A;
+    --accent-pink: #A126AF;
+
+    --button-bg: #FFFFFF;
+    --button-text: #160C17;
+    --button-hover: #45164A;
+    --empty-cell: #c4bbc5;
+    --gradient: linear-gradient(135deg, #45164A, #7E0389);
+}

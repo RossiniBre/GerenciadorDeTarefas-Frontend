@@ -2,9 +2,11 @@
 
 Frontend application for the **TaskNexus** project.
 
-This project is being developed to learn and practice modern frontend development, starting with the fundamentals of **HTML, CSS, and JavaScript**, and progressively introducing **TypeScript, React, and modern frontend tools**.
+TaskNexus is a full-stack task management application developed as a practical project for learning and applying modern software engineering and frontend development practices.
 
-The main goal is to build a real application while studying good software engineering practices such as **Clean Code, SOLID, separation of responsibilities, maintainability, and reusable components**.
+The frontend was initially developed using **HTML, CSS, and JavaScript**, and was later migrated to **React with Vite**, while preserving the application's existing functionality and backend integration.
+
+The project focuses on **Clean Code, SOLID principles, separation of responsibilities, maintainability, reusable components, and practical frontend architecture**.
 
 ---
 
@@ -25,13 +27,14 @@ https://github.com/RossiniBre/GerenciadorDeTarefas-Backend
 The initial phase established the frontend structure and defined the application's visual identity and user experience.
 
 * Initial project structure
-* Initial interface prototyping
+* Interface prototyping
 * Frontend environment setup
-* First integration and testing with the backend API
+* Initial integration with the backend API
+* Initial visual identity and UI design
 
 ### Phase 2 — Authentication
 
-Authentication screens and user flows have been implemented and integrated with the backend.
+Authentication screens and user flows were implemented and integrated with the backend.
 
 * User login
 * User registration
@@ -41,18 +44,19 @@ Authentication screens and user flows have been implemented and integrated with 
 * Password visibility controls
 * Navigation between authentication screens
 * Integration with the backend authentication API
-* Authenticated user navigation to the home page
+* Authenticated user navigation
 
 ### Phase 3 — Task Management
 
-Task management functionality has been implemented and integrated with the backend.
+Core task management functionality was implemented and integrated with the backend.
 
 * Task creation
 * Task listing
 * Task editing
 * Task deletion
 * Task status management
-* Task priority and category management
+* Task priority management
+* Task category management
 * Task search
 * Task filtering
 * Task details
@@ -61,7 +65,7 @@ Task management functionality has been implemented and integrated with the backe
 
 ### Phase 4 — User Account Management
 
-User account management functionality has been implemented and integrated with the backend.
+User account management functionality was implemented and integrated with the authenticated user API.
 
 * My Account page
 * Display of current user information
@@ -69,26 +73,26 @@ User account management functionality has been implemented and integrated with t
 * Username editing
 * Display name editing
 * Email editing
-* User account deletion
+* Account deletion
 * Integration with the authenticated user API
 
 ### Phase 5 — Task Organization and Calendar
 
-Task organization and calendar functionality have been implemented and integrated with the existing task management features.
+Task organization and calendar functionality were added to improve task visualization and productivity.
 
 * Calendar page
 * Calendar-based task visualization
 * Dynamic task rendering by date
-* Task date and time handling
 * Task organization by day
 * Calendar navigation
+* Task date and time handling
 * Integration with existing task data
 * Calendar-specific styling
-* Light mode support for the calendar
+* Light mode support
 
 ### Phase 6 — Nexus IA
 
-The **Nexus IA** assistant has been integrated into the frontend, providing a conversational interface for interacting with the TaskNexus task management system.
+The **Nexus IA** assistant was integrated into the frontend, providing a conversational interface for interacting with the TaskNexus task management system.
 
 The assistant communicates with the backend AI system and supports contextual conversations and task-related actions.
 
@@ -106,107 +110,111 @@ The assistant communicates with the backend AI system and supports contextual co
 * Confirmation flows for task actions
 * Refusal of requests outside the assistant's defined scope
 * Integration with the Nexus IA backend API
-* Light mode support for the assistant interface
+* Light mode support
 
-The AI behavior, supported actions, validation, context management, and scope restrictions are handled by the backend, while the frontend provides the user interface and interaction layer.
+The AI behavior, supported actions, validation, context management, and scope restrictions are handled by the backend. The frontend is responsible for the user interface and interaction layer.
+
+### Phase 7 — Migration to React
+
+The frontend was migrated from the original HTML, CSS, and JavaScript implementation to **React using Vite**.
+
+The migration focuses on replacing the previous page-based structure with a component-based architecture while preserving the application's existing functionality and backend integration.
+
+* React application setup
+* Vite development environment
+* Component-based architecture
+* Reusable React components
+* React-based routing and navigation
+* Migration of existing interfaces
+* Migration of authentication flows
+* Migration of task management features
+* Migration of calendar functionality
+* Migration of user account functionality
+* Migration of Nexus IA
+* Preservation of backend API integration
+* UI/UX refinement during migration
+* Responsive interface improvements
+* Light and dark theme support
 
 ---
 
 ## Architecture
 
-```text
-assets/
+The frontend is currently organized using a **component-based React architecture**.
 
-├── images/
-│   └── Favicon.ico
-│
-├── css/
-│   ├── CalendarPageStyles/
-│   │   ├── calendarPage.css
-│   │   └── light-mode.css
+```text
+src/
+├── assets/
+│   ├── images/
+│   │   └── Favicon.ico
 │   │
-│   ├── ForgotPasswordStyles/
-│   ├── HomePageStyles/
-│   ├── MyAccountPageStyles/
-│   ├── NexusIAStyles/
-│   │   ├── nexusIA.css
-│   │   └── light-mode.css
-│   ├── RegisterPageStyles/
-│   ├── ResetPasswordStyles/
-│   └── loginScreen.css
+│   └── ...
 │
-├── js/
-│   ├── calendarPage.js
-│   ├── forgotPassword.js
-│   ├── homePage.js
-│   ├── loginScreen.js
-│   ├── myAccount.js
-│   ├── nexusIA.js
-│   ├── registerPage.js
-│   ├── resetPassword.js
-│   │
-│   └── utils/
-│       ├── components.js
-│       ├── sidebar.js
-│       ├── tasks.js
-│       └── transition.js
+├── components/
+│   ├── Sidebar/
+│   ├── ...
 │
 ├── pages/
-│   ├── components/
-│   │   └── sidebar.frag
-│   │
-│   ├── CalendarPage.html
-│   ├── ForgotPassword.html
-│   ├── HomePage.html
-│   ├── MyAccount.html
-│   ├── NexusIA.html
-│   ├── RegisterPage.html
-│   └── ResetPassword.html
+│   ├── Calendar/
+│   ├── Home/
+│   ├── Login/
+│   ├── MyAccount/
+│   ├── NexusIA/
+│   ├── Register/
+│   ├── ForgotPassword/
+│   └── ResetPassword/
 │
-└── InitialScreen.html
+├── services/
+│   └── ...
+│
+├── App.jsx
+├── main.jsx
+└── ...
 ```
 
-The frontend is currently organized by responsibility:
+> The structure above represents the target React architecture. Individual directories and components may evolve as the migration progresses.
 
-* `assets/` — Static resources used by the application
-* `assets/images/` — Images and visual assets used by the application
-* `css/` — Stylesheets and visual presentation
-* `js/` — JavaScript logic and interactions
-* `js/utils/` — Shared JavaScript utilities and application-wide behavior
-* `pages/` — Application pages and interfaces
-* `pages/components/` — Reusable HTML components shared across application pages
+The frontend follows the principle of separating:
 
-The architecture will evolve as new features are introduced, eventually incorporating reusable components, centralized API communication, application state management, TypeScript, and React.
+* **Pages** — Application screens and page-level composition
+* **Components** — Reusable UI components
+* **Services** — Communication with external APIs and application services
+* **Assets** — Static resources and visual assets
+
+The architecture will continue to evolve as the project incorporates additional patterns such as centralized API communication, state management, TypeScript, and further component abstraction.
 
 ---
 
 ## Roadmap
 
-| Phase | Status      | Scope                                                        |
-| ----- | ----------- | ------------------------------------------------------------ |
-| 1     | Completed   | Foundation, project structure and interface prototyping      |
-| 2     | Completed   | Authentication screens and user flows                        |
-| 3     | Completed   | Task management screens and interactions                     |
-| 4     | Completed   | User account management and profile features                 |
-| 5     | Completed   | Task organization, productivity and calendar features        |
-| 6     | Completed   | Nexus IA interface and AI-powered task management            |
-| 7     | In Progress | UI/UX refinement, responsiveness and architecture refinement |
-| 8     |             | Production build and deployment                              |
+| Phase | Status      | Scope                                                            |
+| ----- | ----------- | ---------------------------------------------------------------- |
+| 1     | Completed   | Foundation, project structure and interface prototyping          |
+| 2     | Completed   | Authentication screens and user flows                            |
+| 3     | Completed   | Task management screens and interactions                         |
+| 4     | Completed   | User account management and profile features                     |
+| 5     | Completed   | Task organization, productivity and calendar features            |
+| 6     | Completed   | Nexus IA interface and AI-powered task management                |
+| 7     | Completed   | Migration to React, UI/UX refinement and responsive improvements |
+| 8     | In Progress | Production build and deployment                                  |
 
 ---
 
 ## Technologies
 
-The project will progressively explore technologies commonly used in modern frontend development:
+### Frontend
 
 * HTML5
 * CSS3
 * JavaScript
-* TypeScript
 * React
 * Vite
 
-Additional tools and technologies may be introduced as the project evolves.
+### Planned / Future
+
+* Advanced state management
+* Further component abstraction
+* Additional frontend architecture improvements
 
 ---
 
@@ -214,12 +222,23 @@ Additional tools and technologies may be introduced as the project evolves.
 
 The main goals of this project are:
 
-* Learn modern frontend development
+* Learn and apply modern frontend development
 * Understand HTML, CSS, and JavaScript fundamentals
-* Learn TypeScript and React
+* Learn React and TypeScript
 * Build reusable and maintainable components
-* Consume a REST API
+* Consume and integrate with a REST API
 * Apply Clean Code and SOLID principles
 * Practice frontend architecture and software engineering
 * Build a complete full-stack application
 * Explore AI-powered interactions in a real-world application
+* Continuously improve the application's usability, maintainability, and architecture
+
+---
+
+## Development
+
+This project is developed as a practical learning project, with its architecture evolving alongside the implementation.
+
+The frontend initially started as a traditional HTML, CSS, and JavaScript application and was later migrated to React. The migration is intentionally treated as a **direct replacement of the frontend implementation**, rather than as a separate project or a rewrite with a new backend.
+
+The backend remains the source of the application's business logic, authentication, persistence, task management, and AI-related behavior, while the React application is responsible for the user interface and frontend interaction layer.

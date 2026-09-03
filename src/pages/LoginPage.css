@@ -1,0 +1,268 @@
+body {
+    background-color: #160C17;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 6rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.container.visible {
+    opacity: 1;
+}
+
+.title {
+    font-family: "Josefin Sans", sans-serif;
+    color: white;
+    font-size: 12rem;
+    text-shadow:
+        0 0 10px #45164A,
+        0 0 20px #45164A,
+        0 0 30px #45164A;
+    margin: 0;
+}
+
+.header-logo {
+    align-self: flex-end;
+    padding-left: 15rem;
+    padding-top: 45px;
+}
+
+.login-fields {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    border: 0.2px solid white;
+    border-radius: 20px;
+    gap: 1.5rem;
+}
+
+.user-field,
+.password-field {
+    padding: 16px 20px;
+    border: 1px solid white;
+    border-radius: 8px;
+    width: 1000px;
+    font-size: 1.1rem;
+    background-color: transparent;
+    color: white;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.register-recuperation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.links-account {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.register-recuperation a {
+    color: white;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+}
+
+.register-recuperation a:first-child {
+    margin-right: 1rem;
+}
+
+.login-button {
+    padding: 10px 20px;
+    border: 0.2px solid white;
+    border-radius: 8px;
+    background-color: #cccccc;
+    color: #333333;
+    cursor: not-allowed;
+    font-family: "Inter", sans-serif;
+}
+
+.login-button.active {
+    padding: 0.6rem 1.2rem;
+    border: solid 0.2px white;
+    border-radius: 8px;
+    background-color: #45164A;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    opacity: none;
+}
+
+.login-button.active:hover {
+    background-color: #a126af;
+}
+
+.login-error {
+    position: absolute;
+
+    top: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #45164A;
+    border: 0.2px solid white;
+    color: white;
+    font-size: 1.1rem;
+    font-family: Inter, sans-serif;
+    font-weight: bold;
+    padding: 12px 18px;
+    border-radius: 10px;
+    margin: 0;
+    display: inline-block;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.form-hidden {
+    display: none;
+}
+
+.password-field::-ms-reveal,
+.password-field::-ms-clear {
+    display: none;
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper .password-field {
+    width: 100%;
+    padding-right: 20px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 20px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #fcf9f9;
+}
+
+.toggle-password:hover {
+    color: #faf8f8;
+}
+
+.toggle-password .hidden {
+    display: none;
+}
+
+.page-transition {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.loading-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loading-message {
+    color: #ffffff;
+    text-align: center;
+    font-size: 5rem;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.02em;
+    margin: 0;
+}
+
+.loading-dots {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.loading-dots span {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.loading-dots span:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.loading-dots span:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+.loading-dots span:nth-child(3) {
+    animation-delay: 0s;
+}
+
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: scale(0.6);
+        opacity: 0.5;
+    }
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.header-logo.form-hidden {
+    display: none;
+}
+
+.loading-container.form-hidden {
+    display: none;
+}
+
+.login-error-message {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ff6b6b;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin: 0 0 8px 0;
+}
+
+.warning-icon-inline {
+    color: #ff6b6b;
+    font-weight: normal;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
