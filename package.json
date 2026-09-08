@@ -7,10 +7,10 @@
     "node": "22.x"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+  "dev": "vite",
+  "build": "node -e \"console.log('NODE OK:', process.version)\" && vite build",
+  "lint": "eslint .",
+  "preview": "vite preview"
   },
   "dependencies": {
     "lucide-react": "^1.39.0",
