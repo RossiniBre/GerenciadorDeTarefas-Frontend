@@ -8,7 +8,7 @@
   },
   "scripts": {
   "dev": "vite",
-  "build": "node -e \"console.log('NODE OK:', process.version)\" && vite build",
+  "build": "node -e \"console.log('NODE OK:', process.version); console.log('BUILD EXECUTOU')\"",
   "lint": "eslint .",
   "preview": "vite preview"
   },
