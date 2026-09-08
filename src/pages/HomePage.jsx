@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Header from "../components/Header";
 import TaskToolbar from "../components/TaskToolbar";
-import TaskCard from "../components/Taskcard";
+import TaskCard from "../components/TaskCard";
 import CreateTaskModal from "../components/CreateTaskModal";
 import TaskDetailsModal from "../components/TaskDetailsModal";
 import FilterModal from "../components/FilterModal";
