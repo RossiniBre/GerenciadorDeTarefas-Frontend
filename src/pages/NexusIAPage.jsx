@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useAuth } from "../context/useAuth";
 import { useNexusChat } from "../context/useNexusChat";
 
+import nexusIcon from "../assets/Favicon.ico";
 import "./NexusIAPage.css";
 
 import Modal from "../components/Modal";
@@ -145,7 +146,7 @@ export default function NexusIAPage() {
     <main id="nexus-page" className="container page-transition visible">
       <p id="nexus-label">
         Nexus IA <span className="dot-separator">•</span>
-        <img src="src//assets/Favicon.ico" alt="" id="nexus-mini-icon" />
+        <img src={nexusIcon} alt="" id="nexus-mini-icon" />
       </p>
 
       {chatActive && (
